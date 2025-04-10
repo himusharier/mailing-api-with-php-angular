@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OtpComponent } from './otp.component';
+import { ResetComponent } from './reset.component';
 
-describe('OtpComponent', () => {
-  let component: OtpComponent;
-  let fixture: ComponentFixture<OtpComponent>;
+describe('ResetComponent', () => {
+  let component: ResetComponent;
+  let fixture: ComponentFixture<ResetComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OtpComponent]
+      imports: [ResetComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OtpComponent);
+    fixture = TestBed.createComponent(ResetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

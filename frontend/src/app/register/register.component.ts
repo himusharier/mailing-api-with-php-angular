@@ -2,20 +2,20 @@ import { Component } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {SafeHtml} from '@angular/platform-browser';
-import {RouterLink} from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  imports: [CommonModule, FormsModule, RouterLink],
-  templateUrl: './login.component.html',
+  selector: 'app-register',
+  imports: [CommonModule, FormsModule],
+  templateUrl: './register.component.html',
   standalone: true,
-  styleUrl: './login.component.css'
+  styleUrl: './register.component.css'
 })
-export class LoginComponent {
+export class RegisterComponent {
+  userName: string = "";
   userEmail: string = "";
   userPassword: string = "";
   message: SafeHtml = "";
-  isError: boolean = false;
+  isError = false;
 
-  onSubmit() {}
+  onRegister() {}
 }

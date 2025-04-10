@@ -1,0 +1,82 @@
+<div class="navbar-style">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/">
+          <img src="./logo.png" alt="logo" height="30">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/home" style="color: #ff8482;">
+                <i class="bi bi-house-door"></i>
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/documentation" style="color: #ff8482;">
+                <i class="bi bi-file-medical"></i>
+                Documentation
+              </a>
+            </li>
+            @if (isUserLoggedIn) {
+              <li class="nav-item">
+                <a class="nav-link active" routerLink="/profile" style="color: #ff8482;">
+                  <i class="bi bi-person-gear"></i>
+                  Profile
+                </a>
+              </li>
+            }
+
+          </ul>
+          <ul class="navbar-nav">
+            @if (!isUserLoggedIn) {
+              <div class="modal-ul-li">
+                <li style="cursor: pointer;">
+                  <a routerLink="/login">
+                    <span>
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        Login
+                    </span>
+                  </a>
+                </li>
+                <li> | </li>
+                <li style="cursor: pointer;">
+                  <a routerLink="/register">
+                    <span>
+                        <i class="bi bi-person-plus"></i>
+                        Register
+                    </span>
+                  </a>
+                </li>
+              </div>
+            } @else {
+              <li class="nav-item">
+                            <span>
+                                <!-- <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
+                                <a>
+                                    <i class="bi bi-person"></i>
+                                  {{loggedinUserName | titlecase}}
+                                </a>
+                                <a> | </a>
+                                <a style="color: #ff8482; cursor: pointer;" (click)="logoutBtn()"><i class="bi bi-power"></i> Logout</a>
+                            </span>
+                <!-- <ul class="dropdown-menu" style="text-align: center;">
+              <li>
+                <a class="dropdown-item" style="color: #F49291;" (click)="logoutBtn()">
+                    Logout
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+              </li>
+            </ul> -->
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
