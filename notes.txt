@@ -1,0 +1,7 @@
+free php projects:
+    1. https://phpgurukul.com/php-projects-free-downloads/
+    2. https://github.com/huzztech/php-oop-project
+    3. https://www.sourcecodester.com/php-project
+    4. https://github.com/Riyadhahmed/Object-Oriented-PHP
+    5. https://dev.to/arafatweb/building-a-php-crud-application-with-oop-and-mysql-a-best-practice-guide-19p
+    
