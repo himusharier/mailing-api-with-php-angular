@@ -1,0 +1,19 @@
+RewriteEngine on
+
+#SSL certificate ---
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#Disable Directory Browsing ---
+Options All -Indexes
+
+#Configure Index Page ---
+# DirectoryIndex index.php
+
+#Pass all requests through index.php
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+RewriteRule ^user_registration_script$ user-registration.php
+RewriteRule ^user_login_script$ user-login.php
