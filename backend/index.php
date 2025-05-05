@@ -1,2 +1,2 @@
 <?php
-echo "index page";
+echo "hello, welcome to my mailing api.";
