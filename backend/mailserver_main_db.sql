@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2025 at 10:17 AM
+-- Generation Time: May 05, 2025 at 04:59 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `mailserver_main_db`
 --
+CREATE DATABASE IF NOT EXISTS `mailserver_main_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `mailserver_main_db`;
 
 -- --------------------------------------------------------
 
@@ -29,20 +31,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `user_id` varchar(50) NOT NULL,
+  `user_id` varchar(30) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `auth` varchar(50) NOT NULL,
+  `service_auth` varchar(30) NOT NULL,
+  `token` varchar(25) NOT NULL,
   `datetime` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `user_id`, `name`, `email`, `password`, `auth`, `datetime`) VALUES
-(1, '7800505202595313', 'Sharier Himu', 'himusharier@gmail.com', '$2y$10$50F1Kq.lEcyAtr7prrMD7.r1MptrRnzQkzbwh1iRUTGTCFtXUlE1a', '4ly7ri&^g!)1u8dzo2+*e', '1746431593');
 
 --
 -- Indexes for dumped tables
@@ -62,7 +58,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

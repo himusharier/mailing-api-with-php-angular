@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-            $chk_sql_query = "SELECT email FROM users WHERE email='$email'";
+            $chk_sql_query = "SELECT * FROM users WHERE email='$email'";
             $chk_result = mysqli_query($db, $chk_sql_query);
             $row = mysqli_fetch_assoc($chk_result);
 
@@ -26,15 +26,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             } else {                
                 $passwordEncrypt = password_hash($password, PASSWORD_BCRYPT);
                 $user_id = rand(001, 999) . date('dmYGis');
+                
                 $datetime = time();
 
-                $auth = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyz@#$%^&*()!-+"), 0, 21);
+                $auth = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyz@#$%^&*()!-+"), 0, 25);
 
-                $sql_query = "INSERT INTO users (user_id, name, email, password, auth, datetime) VALUES ('$user_id', '$name', '$email', '$passwordEncrypt', '$auth', '$datetime')";
+                $sql_query = "INSERT INTO users (user_id, name, email, password, service_auth, token, datetime) VALUES ('$user_id', '$name', '$email', '$passwordEncrypt', '$auth', '$token', '$datetime')";
                 
                 if (mysqli_query($db, $sql_query)) {
+                    $chk_sql_query = "SELECT name, email FROM users WHERE email='$email'";
+                    $chk_result = mysqli_query($db, $chk_sql_query);
+                    $row = mysqli_fetch_assoc($chk_result);
+
                     http_response_code(200);
-                    echo json_encode(['code' => 200, 'status' => 'registrsation successful']);
+                    echo json_encode([
+                        'code' => 200, 
+                        'status' => 'registrsation successful',
+                        'user' => [
+                            'name' => $row["name"],
+                            'email' => $row["email"]
+                        ]
+                    ]);
                     exit();
 
                 } else {

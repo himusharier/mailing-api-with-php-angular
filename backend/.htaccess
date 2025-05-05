@@ -17,3 +17,4 @@ Options All -Indexes
 
 RewriteRule ^user_registration_script$ user-registration.php
 RewriteRule ^user_login_script$ user-login.php
+RewriteRule ^user_details_script$ user-details.php
